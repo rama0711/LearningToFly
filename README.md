@@ -23,7 +23,7 @@ This repository implements the code for the paper [Learning to Fly: Computationa
 
 - The code has been tested on `Ubuntu 16.04` and `Ubuntu 18.04`.
 
-- Compiling the code relies on `cmake >= 3.1.0`. Please install it through the instruction in this [link](https://cmake.org/install/) before compiling the code. 
+- Compiling the code relies on `cmake >= 3.1.0`. Please install it through the instruction in this [link](https://cmake.org/install/) before compiling the code.
 
 - Compile the code:
 
@@ -78,7 +78,7 @@ This repository implements the code for the paper [Learning to Fly: Computationa
 
 - The code has been tested on `Ubuntu 16.04`.
 
-- The code relies on a modified version of OpenAI baselines in `git@github.com:eanswer/openai_baselines.git`. To run the code, please first clone the repository 
+- The code relies on a modified version of OpenAI baselines in `git@github.com:eanswer/openai_baselines.git`. To run the code, please first clone the repository
 
   ```
   git clone git@github.com:eanswer/openai_baselines.git
@@ -141,6 +141,27 @@ This repository implements the code for the paper [Learning to Fly: Computationa
 
 - Please refer to Ardupilot [official document](https://ardupilot.org/copter/index.html) for more detials.
 
+### Docker
+
+- Use the provided Dockerfile
+
+```
+docker build -t learning_to_fly .
+```
+
+- Launch a container with graphics enabled. E.g.,
+
+```
+docker run -it  \
+       --env="DISPLAY" \
+       --env="QT_X11_NO_MITSHM=1" \
+       --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+       --net="host" \
+       --privileged \
+       --volume $(pwd):/usr/src/app \
+       learning_to_fly \
+       /bin/bash
+```
 
 
 ### Citation
@@ -159,4 +180,3 @@ If you find our paper or code is useful, please consider citing:
   publisher={ACM New York, NY, USA}
 }
 ```
-
