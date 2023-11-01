@@ -163,6 +163,33 @@ docker run -it  \
        /bin/bash
 ```
 
+- In the container, the code has been deployed and built in /code/
+- You can also use the container for development by working on the /usr/src/app directory.
+
+#### Testing the image
+ - Train from scratch
+ ```
+ cd /code/LearningToFly/Training/code
+ python3 run.py  --model QuadPlane
+ ```
+ - Export the policy
+ ```
+python3 save.py --controller best_model
+cp AP_MotorsPolicyDefinition_UI.h ../../SimulationUI/projects/copter_simulation/Controller/NN/NNModelParameters.h
+ ```
+ - Re-compile design viewer
+ ```
+ cd /code/LearningToFly/SimulationUI/build
+ make -j4
+ ```
+ - Launch the simulator with the trained policy
+ ```
+ cd /code/LearningToFly/SimulationUI/build
+ ./projects/design_viewer/design_viewer
+ ```
+
+
+
 
 ### Citation
 
