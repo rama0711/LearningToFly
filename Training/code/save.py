@@ -30,7 +30,7 @@ def save(model_directory, model_filename):
         return mlp_policy.MlpPolicy(name=name, ob_space=ob_space, ac_space=ac_space,
             hid_size=64, num_hid_layers=2)
     
-    env = hybrid3D_env.Hybrid3DEnv(data_folder = "../../../data/", config_file = "E1.xml", play = True)
+    env = hybrid3D_env.Hybrid3DEnv(data_folder = "../data/", config_file = "rama.xml", play = True)
 
     pi = pposgd_simple.build_graph_only(env, policy_fn,
                 max_timesteps=1000000,
