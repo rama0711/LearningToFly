@@ -21,4 +21,4 @@ RUN python3 -m pip install opencv-python==4.4.0.42
 WORKDIR /code
 RUN cd /code; git clone https://github.com/EduardoFF/openai_baselines.git; cd openai_baselines; pip install -e .
 
-RUN cd /code; git clone https://github.com/EduardoFF/LearningToFly.git; cd LearningToFly/SimulationUI; mkdir build; cd build; cmake ../; make -j4
+RUN cd /code; git clone -b ramaModel https://github.com/rama0711/LearningToFly.git; cd LearningToFly/SimulationUI; mkdir build; cd build; cmake ../; make -j4
