@@ -170,7 +170,7 @@ docker run -it  \
  - Train from scratch
  ```
  cd /code/LearningToFly/Training/code
- python3 run.py  --model QuadPlane
+ python3 run.py  --model rama
  ```
  - Export the policy
  ```
